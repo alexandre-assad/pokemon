@@ -1,5 +1,5 @@
 from enum import Enum, auto
-from pokemon import Pokemon
+
 
 
 class List_type(Enum):
