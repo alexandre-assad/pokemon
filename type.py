@@ -1,5 +1,5 @@
 from enum import Enum, auto
-
+import pygame
 
 
 class List_type(Enum):
@@ -43,15 +43,60 @@ TableDesTypes = {
     str(List_type.Acier):[[List_type.Glace,List_type.Roche],[List_type.Feu,List_type.Eau,List_type.Acier],[]]
 }
 
-
 class Type():
     
-    def __init__(self,type):
-        self.type = type
+    def __init__(self,types):
+        self.type = types
+        self.img = []
+        if type(self.type) == List_type:
+
+            self.img += self.imgType(self.type)
+        else:
+            for i in self.type:
+ 
+                self.img += self.imgType(i)
+        
         
     def __repr__(self):
         return f"Type : {self.type}"
     
+    def imgType(self,type):
+        if type == List_type.Acier:
+            return [pygame.image.load("type_acier.png")]
+        elif type == List_type.Dragon:
+            return [pygame.image.load("type_dragon.png")]
+        elif type == List_type.Psy:
+            return [pygame.image.load("type_psy.png")]
+        elif type == List_type.Electrique:
+            return [pygame.image.load("type_electrique.png")]
+        elif type == List_type.Feu:
+            return [pygame.image.load("type_feu.png")]
+        elif type == List_type.Insecte:
+            return [pygame.image.load("type_insecte.png")]
+        elif type == List_type.Plante:
+            return [pygame.image.load("type_plante.png")]
+        elif type == List_type.Sol:
+            return [pygame.image.load("type_sol.png")]
+        elif type == List_type.Tenebre:
+            return [pygame.image.load("type_tenebre.png")]
+        elif type == List_type.Combat:
+            return [pygame.image.load("type_combat.png")]
+        elif type == List_type.Eau:
+            return [pygame.image.load("type_eau.png")]
+        elif type == List_type.Glace:
+            return [pygame.image.load("type_glace.png")]
+        elif type == List_type.Normal:
+            return [pygame.image.load("type_normal.png")]
+        elif type == List_type.Poison:
+            return [pygame.image.load("type_poison.png")]
+        elif type == List_type.Roche:
+            return [pygame.image.load("type_roche.png")]
+        elif type == List_type.Spectre:
+            return [pygame.image.load("type_spectre.png")]
+        elif type == List_type.Vol:
+            return [pygame.image.load("type_vol.png")]
+        
+        
     def howEffective(self,othertype):
         if type(othertype) != list: 
             for keys in TableDesTypes.keys():

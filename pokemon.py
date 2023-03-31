@@ -2,7 +2,7 @@ from competence import *
 import pygame
 class Pokemon:
     
-    def __init__(self,nom,type,img,x=0,y=0,pv=100,atk=1,defense=1):
+    def __init__(self,nom,type,img,pv=100,atk=1,defense=1,x=0,y=0):
         self.__nom = nom
         self.type = type
         self.__vie = pv
@@ -13,6 +13,7 @@ class Pokemon:
         self.img = img
         self.x = x
         self.y = y
+        self.etat = "vie"
         
     def __repr__(self):
         return f"Pokemon : {self.__nom}; PV : {self.__vie}; Attaque : {self.atk}; Defense : {self.deff}; Level : {self.lvl}"
